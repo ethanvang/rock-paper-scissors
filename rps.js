@@ -4,6 +4,9 @@ var player;
 const choices = ["rock","paper","scissors"];
 var result;
 
+const player_wins = document.querySelector("#player-wins");
+const cpu_wins = document.querySelector("#cpu-wins");
+
 function playRound() {
     cpu = Math.random();
     if (cpu < .3) {
@@ -21,8 +24,10 @@ function playRound() {
     }
     if (cpu - player == 1 || cpu - player == -2) {
         result = "Computer won!";
+        cpu_wins.textContent = parseInt(cpu_wins.textContent) + 1;
     } else if (player - cpu == 1 || player - cpu < 0) {
         result = "Player won!";
+        player_wins.textContent = parseInt(player_wins.textContent) + 1;
     }
 }
 

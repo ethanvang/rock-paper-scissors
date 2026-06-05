@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="rps.css">
+    <script src="rps.js" defer></script>
 </head>
 <body>
-    <script src="rps.js"></script>
+    <h1>Your choices:</h1>
+    <div class="flex-container" style="max-height: 100px;">
+        <button id="rock"><img src="images/rock.jpg" alt="rock" style="width:100%"></button>
+        <button id="paper"><img src="images/paper.jpg" alt="paper"></button>
+        <button id="scissors"><img src="images/scissors.jpg" alt="scissors"></button>
+    </div>
+    <div id="results" class="flex-container">
+        <div class="column-flex">
+            <h1>Your Choice:</h1>
+            <img src="images/null.png" alt="your choice" id="player-img">
+        </div>
+        <div><img src="images/vs.png" alt="VS" id="vs"></div>
+        <div class="column-flex">
+            <h1>Computer Choice:</h1>
+            <img src="images/null.png" alt="cpu choices" id="cpu-img">
+        </div>
+    </div>
+    <h1 id="result-text">Result: </h1>
+
 </body>
 </html>

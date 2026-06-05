@@ -1,7 +1,9 @@
 var cpu;
 var player;
 
-const choices = ["rock","paper","scissors"]
+const choices = ["rock","paper","scissors"];
+var result;
+
 function playRound() {
     cpu = Math.random();
     if (cpu < .3) {
@@ -11,18 +13,50 @@ function playRound() {
     } else {
         cpu = 2;
     }
-    player = prompt("Let's play Rock-Paper-Scissors!").toLowerCase();
-    player = choices.indexOf(player);
+    //player = prompt("Let's play Rock-Paper-Scissors!").toLowerCase();
+    //player = choices.indexOf(player);
     console.log("Computer chose: "+choices[cpu] + "\nYou chose: " + choices[player]);
     if (player == cpu) {
-        console.log("Tie!");
+        result ="Tie!";
     }
     if (cpu - player == 1 || cpu - player == -2) {
-        console.log("Computer won!");
+        result = "Computer won!";
     } else if (player - cpu == 1 || player - cpu < 0) {
-        console.log("Player won!");
+        result = "Player won!";
     }
 }
-for (let i = 0; i < 5; i++) {
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+const playerimg = document.querySelector("#player-img");
+const cpuimg = document.querySelector("#cpu-img");
+const result_text = document.querySelector("#result-text");
+
+rock.addEventListener("click", () => {
+    player = 0;
     playRound();
-}
+    //alert(result);
+    playerimg.setAttribute("src","images/rock.jpg");
+    cpuimg.setAttribute("src", "images/"+choices[cpu]+".jpg");
+    result_text.textContent = "Result: " + result;
+})
+paper.addEventListener("click", () => {
+    player = 1;
+    playRound();
+    //alert(result);
+    playerimg.setAttribute("src","images/paper.jpg");
+    cpuimg.setAttribute("src", "images/"+choices[cpu]+".jpg");
+    result_text.textContent = "Result: " + result;
+})
+scissors.addEventListener("click", () => {
+    player = 2;
+    playRound();
+    //alert(result);
+    playerimg.setAttribute("src","images/scissors.jpg");
+    cpuimg.setAttribute("src", "images/"+choices[cpu]+".jpg");
+    result_text.textContent = "Result: " + result;
+})
+
+
